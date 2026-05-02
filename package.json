@@ -1,0 +1,64 @@
+{
+  "name": "micropython-k210-maixdock",
+  "version": "1.0.0",
+  "author": "ArthurZheng",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/openblock-plugin/microPythonK210MaixDock.git"
+  },
+  "type": "module",
+  "scripts": {
+    "prepare": "husky",
+    "dev": "npx openblock-registry-cli dev",
+    "build": "npx openblock-registry-cli build",
+    "build:obfuscate": "npx openblock-registry-cli build --obfuscate",
+    "publish": "npx openblock-registry-cli publish",
+    "publish:dry": "npx openblock-registry-cli publish --dry-run",
+    "validate": "npx openblock-registry-cli validate",
+    "i18n:update": "npx openblock-registry-cli i18n update",
+    "lint": "eslint . --ext .js --fix"
+  },
+  "openblock": {
+    "name": "K210 MaixDock",
+    "deviceId": "microPythonK210MaixDock",
+    "manufactor": "kendryte",
+    "learnMore": "https://wiki.sipeed.com/hardware/en/maix/maixduino/maixduino.html",
+    "type": "microPython",
+    "iconURL": "./assets/microPythonK210MaixDock.png",
+    "description": {
+      "formatMessage": {
+        "id": "microPythonK210MaixDock.description",
+        "default": "A control board based on the K210 RISC-V chip that only has basic functions and leads out all IO pins."
+      }
+    },
+    "bluetoothRequired": false,
+    "serialportRequired": true,
+    "defaultBaudRate": "115200",
+    "internetConnectionRequired": false,
+    "launchPeripheralConnectionFlow": true,
+    "useAutoScan": false,
+    "connectionIconURL": "./assets/microPythonK210MaixDock-illustration.svg",
+    "connectionSmallIconURL": "./assets/microPythonK210MaixDock-small.svg",
+    "main": "./src/microPythonK210MaixDock.js",
+    "generator": "./src/generator.js",
+    "translations": "./src/translations.js",
+    "programMode": ["upload"],
+    "tags": ["microPython"],
+    "helpLink": "https://wiki.openblock.cc/general-hardware-guidelines/boards/k210-maixdock",
+    "libraries": "./libraries",
+    "firmwares": [
+      {
+        "id": "standard",
+        "name": "MaixPy Standard",
+        "file": "./firmwares/maixpy-k210.bin"
+      }
+    ]
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.3.0",
+    "eslint-config-scratch": "^5.0.0",
+    "husky": "^9.0.0"
+  }
+}
